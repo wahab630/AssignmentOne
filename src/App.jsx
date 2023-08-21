@@ -5,7 +5,7 @@ import { products } from "./products";
 
 function App() {
   // const [n, setN] = useState(45);
-  const [storeProducts, setStoreProducts] = useState(products)
+  const [storeProducts, setStoreProducts] = useState(products)// root ma define kia taka one way flow
   // const [...products]=products
   // console.log(products);
   // const [product, setProduct] = useState({

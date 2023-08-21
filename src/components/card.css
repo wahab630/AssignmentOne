@@ -1,12 +1,25 @@
 .card {
   border-radius: 25px 25px;
+  transition: all .4s linear;
+  overflow: hidden;
 }
 .card:hover {
-  scale: 1.1;
+  /* scale: 1.1; */
+  transform: translateY(-10px);
 }
 .card:hover .price-red {
   color: red;
 }
 .card:hover .rating-yellow {
   color: green;
+}
+.card img {
+  height: 200px;
+  object-fit: cover;
+  overflow: hidden;
+  transition: all .3s linear;
+}
+.card:hover img  {
+  scale:1.05;
+  
 }
