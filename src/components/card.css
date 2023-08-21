@@ -1,0 +1,12 @@
+.card {
+  border-radius: 25px 25px;
+}
+.card:hover {
+  scale: 1.1;
+}
+.card:hover .price-red {
+  color: red;
+}
+.card:hover .rating-yellow {
+  color: green;
+}
