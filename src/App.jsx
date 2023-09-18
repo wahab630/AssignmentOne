@@ -1,11 +1,42 @@
 import { useState } from "react";
-import Home from "./pages/Home";
+import Home, { getData } from "./pages/Home";
 import About from "./pages/About";
-import { products } from "./products";
+import Contact from "./pages/Contact";
+import {
+  createBrowserRouter,
+  RouterProvider,
+  createRoutesFromElements,
+  Route,
+} from "react-router-dom";
+import Layout from "./components/Layout";
+import NotFound from "./components/NotFound";
+import Detail, { getProductById } from "./pages/Detail";
+import Form from "./components/Form";
+import AddProduct from "./components/AddProduct";
+import ProductCartDetails from "./components/ProductCartDetails";
 
 function App() {
+  // const [storeProducts, setStoreProducts] = useState(products); // root ma define kia taka one way flow
+  const router = createBrowserRouter(
+    createRoutesFromElements(
+      <Route path="/" element={<Layout />}>
+        <Route index element={<Home />} loader={getData} />
+        <Route path="/about" element={<About />} />
+        <Route path="/contact" element={<Contact />} />
+        <Route path="/form" element={<Form />} />
+        <Route path="/productCartDetails" element={<ProductCartDetails />} />
+        <Route path="/add-product" element={<AddProduct />} />
+        <Route
+          path="/detail/:id"
+          element={<Detail />}
+          loader={getProductById}
+        />
+        <Route path="*" element={<NotFound />} />
+      </Route>
+    )
+  );
   // const [n, setN] = useState(45);
-  const [storeProducts, setStoreProducts] = useState(products)// root ma define kia taka one way flow
+
   // const [...products]=products
   // console.log(products);
   // const [product, setProduct] = useState({
@@ -39,24 +70,37 @@ function App() {
   // };
   return (
     <>
-      <Home products={storeProducts}/>
-      <About />
-      {/* <h1>{product.title}</h1>
-      <h1>{product.price}</h1>
-      <h1>{product.description}</h1>
-      <button onClick={updatePrice}>Update Price</button> */}
-      {/* {nums.map((val) => (
-        <p key={val.id}>{val}</p>
-      ))} */}
-      {/* <button onClick={updateNums}>Add 10 to Array</button> */}
-      {/* <button onClick={increment} disabled={x >= 100 ? true : false}>
-        Increment
-      </button>
-      <button onClick={decrement} disabled={x <= 0 ? true : false}>
-        Decrement
-      </button> */}
+      <RouterProvider router={router} />
     </>
   );
 }
 
 export default App;
+{
+  /* <Home products={storeProducts} />
+      <About /> */
+}
+{
+  /* <h1>{product.title}</h1>
+      <h1>{product.price}</h1>
+      <h1>{product.description}</h1> */
+}
+{
+  /* <button onClick={updatePrice}>Update Price</button> */
+}
+{
+  /* {nums.map((val) => (
+        <p key={val.id}>{val}</p>
+      ))} */
+}
+{
+  /* <button onClick={updateNums}>Add 10 to Array</button> */
+}
+{
+  /* <button onClick={increment} disabled={x >= 100 ? true : false}>
+        Increment
+      </button>
+      <button onClick={decrement} disabled={x <= 0 ? true : false}>
+        Decrement
+      </button> */
+}
