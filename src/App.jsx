@@ -14,6 +14,8 @@ import Detail, { getProductById } from "./pages/Detail";
 import Form from "./components/Form";
 import AddProduct from "./components/AddProduct";
 import ProductCartDetails from "./components/ProductCartDetails";
+import Trial from "./components/trial";
+import ProductList from "./components/ProductList";
 
 function App() {
   // const [storeProducts, setStoreProducts] = useState(products); // root ma define kia taka one way flow
@@ -24,6 +26,7 @@ function App() {
         <Route path="/about" element={<About />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/form" element={<Form />} />
+        <Route path="/trial" element={<Trial />} />
         <Route path="/productCartDetails" element={<ProductCartDetails />} />
         <Route path="/add-product" element={<AddProduct />} />
         <Route
@@ -31,6 +34,7 @@ function App() {
           element={<Detail />}
           loader={getProductById}
         />
+        {/* <Route path="/product-list" element={<ProductList />} /> */}
         <Route path="*" element={<NotFound />} />
       </Route>
     )

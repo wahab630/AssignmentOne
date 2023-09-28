@@ -25,9 +25,9 @@ const Card = ({ product }) => {
   const handleDecrement = (id) => {
     dispatch(decreaseQty(id));
   };
-  const handleRemoveFromCart = (id)=>{
-    dispatch(removeFromCart(id))
-  }
+  const handleRemoveFromCart = (id) => {
+    dispatch(removeFromCart(id));
+  };
 
   function truncate(str, n) {
     return str.length > n ? str.slice(0, n - 1) + "…" : str;
@@ -96,6 +96,7 @@ const Card = ({ product }) => {
               Add to Chart
             </button>
           )}
+          
         </div>
       </div>
     </>

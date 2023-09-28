@@ -1,6 +1,15 @@
 import { combineReducers, configureStore } from "@reduxjs/toolkit";
 import depositReducer from "../features/deposit/depositSlice";
 import cartReducer from "../features/cart/cartSlice";
+import { productApi } from "../features/productslisting/productApi";
+
+// export const store = configureStore({
+//   reducer: {
+//     [productApi.reducerPath]: productApi.reducer,
+//   },
+//   middleware: (getDefaultMiddleware) =>
+//     getDefaultMiddleware().concat(productApi.middleware),
+// });
 
 const rootReducer = combineReducers({
   depAmount: depositReducer, // ye wala deposit redux dev tool ma show hoga kyunka state he or value bhi wahi se are he  yaha multiple reducer a sakte he

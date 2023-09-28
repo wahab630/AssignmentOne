@@ -51,6 +51,11 @@ const Nav = () => {
                   Add Product
                 </NavLink>
               </li>
+              <li className="nav-item">
+                <NavLink className="nav-link " to={"/trial "}>
+                  trial
+                </NavLink>
+              </li>
             </ul>
             <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
               <li className="nav-item">
